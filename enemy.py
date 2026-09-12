@@ -1,14 +1,18 @@
 class Enemy:
-    def __init__(self, name, current_health, attack, max_attack, armour, drops):
+    def __init__(self, name, current_health, max_health, attack, max_attack, armour, drops):
         self.name = name
         self.current_health = current_health
+        self.max_health = max_health
         self.attack = attack
         self.max_attack = max_attack
         self.armour = armour
         self.drops = drops
 
     def get_damaged(self, amount):
-        self.current_health -= amount
+        if self.current_health - amount <= 0:
+            self.current_health = 0
+        else:
+            self.current_health -= amount
     
     def is_alive(self):
         if self.current_health <= 0:
@@ -29,6 +33,7 @@ class Drops:
 skeleton = Enemy(
     name="Skeleton",
     current_health=100,
+    max_health=100,
     attack=5, 
     max_attack=10, 
     armour=2,
@@ -49,13 +54,14 @@ skeleton = Enemy(
             drop_rate=0.4,
             min_amount=10,
             max_amount=20,
-        )
+        ),
         ]
 )
 
 spider = Enemy(
     name="Spider",
     current_health=100,
+    max_health=100,
     attack=4,
     max_attack=6,
     armour=4,

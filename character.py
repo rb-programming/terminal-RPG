@@ -1,3 +1,5 @@
+import random
+
 class Character:
     def __init__(self, name, current_health = 100, max_health = 100, attack = 9, max_attack = 14, armour = 5, xp = 0, level = 1):
         self.name = name
@@ -10,17 +12,28 @@ class Character:
         self.xp = xp
 
     def level_up(self):
-        if self.xp >= 75 * self.level ** 1.6:
-            self.xp -= 75 * self.level ** 1.6
+        cost = int(75 * self.level ** 1.6)
+        self.level += 1
+        self.xp -= cost
+        if self.xp >= int(75 * self.level ** 1.6):
+            self.xp -= int(75 * self.level ** 1.6)
             self.level += 1
-        else:
-            print(f"Farm more.\nYou have {int(self.xp)}/{int(75 * self.level ** 1.6)} xp.")
 
-    def gain_xp(self, amount):
-        self.xp += amount
+    def gain_xp(self, difficulty):
+        if difficulty == 'low':
+            self.xp += random.randint(30, 50)
+        if difficulty == 'mid':
+            self.xp += random.randint(60, 90)
+        if difficulty == 'high':
+            self.xp += random.randint(100, 150)
+        if difficulty == 'elite':
+            self.xp += int(75 * self.level ** 1.6 * 2)
 
     def get_damaged(self, amount):
-        self.current_health -= amount
+        if self.current_health - amount <= 0:
+            self.current_health = 0
+        else:
+            self.current_health -= amount
 
     def is_alive(self):
         if self.current_health <= 0:
