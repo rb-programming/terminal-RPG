@@ -85,7 +85,7 @@ def fight(player, backpack, difficulty):
                 backpack.pick_item(item=drops.item, amount=amount)
                 print(f"{green}+{amount}{reset} {drops.item}")
         time.sleep(2)
-        #Add level up and strengthen character
+        player.level_up()
         ui.clear_terminal()
         ui.topbar(player)
         menu.menu_selection(player, backpack, input(f"""Main menu
