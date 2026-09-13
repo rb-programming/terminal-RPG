@@ -12,9 +12,6 @@ class Character:
         self.xp = xp
 
     def level_up(self):
-        cost = int(75 * self.level ** 1.6)
-        self.level += 1
-        self.xp -= cost
         if self.xp >= int(75 * self.level ** 1.6):
             self.xp -= int(75 * self.level ** 1.6)
             self.level += 1
