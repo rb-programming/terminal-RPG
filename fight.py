@@ -6,8 +6,6 @@ import menu
 
 from ui import reset, bold, green, yellow, magenta, red
 
-
-
 difficulties = {
     "low": enemy.low,
     "mid": enemy.mid,
@@ -21,13 +19,7 @@ def choose_enemy(difficulty):
 def calculate_damage(attacker, defender):
     damage = random.randint(attacker.attack, attacker.max_attack)
     final_damage = damage * (100 / (100 + defender.armour * 10))
-    return(final_damage)
-
-def switch_turn(turn):
-    if turn == "player":
-        return "enemy"
-    else:
-        return "player"
+    return final_damage
     
 def drop_items():
     pass
@@ -36,14 +28,12 @@ def fight(player, backpack, difficulty):
     enemy = choose_enemy(difficulty)
     player.current_health = player.max_health
     enemy.current_health = enemy.max_health
-    ui.clear_terminal()
-    ui.topbar(player)
+    ui.refresh(player)
     ui.enemy(enemy, difficulty)
     turn = "player"
     log = []
     while player.is_alive() and enemy.is_alive():
-        ui.clear_terminal()
-        ui.topbar(player)
+        ui.refresh(player)
         ui.enemy(enemy, difficulty)
         for i in log:
             print(i)
@@ -58,7 +48,7 @@ def fight(player, backpack, difficulty):
             else:
                 log.append(f"You have slain the {red}{(enemy.name).lower()}{reset}!")
                 print(f"You have slain the {red}{(enemy.name).lower()}{reset}!")
-            turn = switch_turn("player")
+            turn = 'enemy'
         else:
             time.sleep(0.5)
             damage = calculate_damage(enemy, player)
@@ -70,9 +60,8 @@ def fight(player, backpack, difficulty):
             else:
                 log.append(f"{red}You {bold}DIED!{reset}")
                 print(f"{red}You {bold}DIED!{reset}")
-            turn = switch_turn("enemy")
-    ui.clear_terminal()
-    ui.topbar(player)
+            turn = 'player'
+    ui.refresh(player)
     ui.enemy(enemy, difficulty)
     for i in log:
         print(i)
@@ -86,8 +75,7 @@ def fight(player, backpack, difficulty):
                 print(f"{green}+{amount}{reset} {drops.item}")
         time.sleep(2)
         player.level_up()
-        ui.clear_terminal()
-        ui.topbar(player)
+        ui.refresh(player)
         menu.menu_selection(player, backpack, input(f"""Main menu
   {green}{bold}1){reset} Fight
   {green}{bold}2){reset} Check inventory

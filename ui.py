@@ -15,6 +15,10 @@ clear_terminal = os.system('cls' if os.name == 'nt' else 'clear')
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+def refresh(player):
+    clear_terminal()
+    topbar(player)
+
 def output(*args):
     sep = f'\n{'='*70}'
     for i in args:
@@ -22,7 +26,7 @@ def output(*args):
 
 def topbar(player):
     output(f"{blue}{bold}Terminal RPG{reset}",
-      f"{green}{bold}Player{reset}: {green}{player.name}{reset} \t\tHP: {green}{int(player.current_health)}{reset}/{player.max_health}\tXP: {green}{player.xp}{reset}/{int(75 * player.level ** 1.6)}"
+      f"{green}{bold}Player{reset}: {green}{player.name}{reset} \t\tHP: {green}{int(player.current_health)}{reset}/{player.max_health}\tXP: {green}{player.xp}{reset}/{int(75 * player.level ** 1.6)}\tLevel: {green}{bold}{player.level}{reset}"
       )
 
 def enemy(enemy, difficulty):
