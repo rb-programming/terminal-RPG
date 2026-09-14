@@ -5,7 +5,9 @@ import menu
 from ui import green, bold, reset
 
 class Inventory:
-    def __init__(self, itemdict = {}):
+    def __init__(self, itemdict=None):
+        if itemdict == None:
+            itemdict = {}
         self.itemdict = itemdict
 
     def show_inventory(self, player):
@@ -35,22 +37,24 @@ class Inventory:
 
     def craft_item(self, player, item, craft_amount):
         ui.refresh(player)
-        recipe_book = recipes.Recipe()
+        recipe_book = recipes.recipes
         can_craft = True
-        if item in recipe_book.recipes:
-            for component, amount in recipe_book.recipes[item].items():
+        if item not in recipe_book:
+            print("Enter a valid item")
+        elif item in recipe_book:
+            for component, amount in recipe_book[item].items():
                 if component in self.itemdict:
                     if amount * int(craft_amount) > self.itemdict[component]:
                         can_craft = False
                 else:
                     can_craft = False
-        if can_craft:
-            for component, amount in recipe_book.recipes[item].items():
-                self.delete_item(component, amount * craft_amount)
-            self.pick_item(item, 1 * craft_amount)
-        else:
-            print("You don't have enough materials to craft that item")
-        print("Backpack:")
+            if can_craft:
+                for component, amount in recipe_book[item].items():
+                    self.delete_item(component, amount * craft_amount)
+                self.pick_item(item, 1 * craft_amount)
+            else:
+                print("You don't have enough materials to craft that item")
+            print("Backpack:")
         for item, amount in self.itemdict.items():
             if amount > 0:
                 print(item, amount)
