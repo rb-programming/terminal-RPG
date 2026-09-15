@@ -1,8 +1,4 @@
 import recipes
-import ui
-import menu
-
-from ui import green, bold, reset
 
 class Inventory:
     def __init__(self, itemdict=None):
@@ -10,15 +6,11 @@ class Inventory:
             itemdict = {}
         self.itemdict = itemdict
 
-    def show_inventory(self, player):
-        ui.refresh(player)
+    def show_inventory(self):
         print("Backpack:")
         for item, amount in self.itemdict.items():
             if amount > 0:
                 print(item, amount)
-        menu.backpack_menu(self, player, input(f"""  {green}{bold}1){reset} Craft
-  {green}{bold}2){reset} Back
-> """))
 
     def pick_item(self, item, amount):
         if item in self.itemdict:
@@ -35,8 +27,21 @@ class Inventory:
         else:
             print(f"You don't have {item} in your inventory.")
 
-    def craft_item(self, player, item, craft_amount):
-        ui.refresh(player)
+    def craftable(self):
+        recipe_book = recipes.recipes
+        for item in recipe_book:
+            can_craft = True
+            components = []
+            for component, amount in recipe_book[item].items():
+                components.append(f"{amount}x {component}")
+                if component not in self.itemdict:
+                    can_craft = False
+                elif self.itemdict[component] < amount:
+                    can_craft = False
+            if can_craft:
+                print(f"{item} | {', '.join(components)}")
+
+    def craft_item(self, item, craft_amount):
         recipe_book = recipes.recipes
         can_craft = True
         if item not in recipe_book:
@@ -54,10 +59,3 @@ class Inventory:
                 self.pick_item(item, 1 * craft_amount)
             else:
                 print("You don't have enough materials to craft that item")
-            print("Backpack:")
-        for item, amount in self.itemdict.items():
-            if amount > 0:
-                print(item, amount)
-        menu.backpack_menu(self, player, input(f"""  {green}{bold}1){reset} Craft
-  {green}{bold}2){reset} Back
-> """))

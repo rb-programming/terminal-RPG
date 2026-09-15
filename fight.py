@@ -2,7 +2,6 @@ import enemy
 import random
 import time
 import ui
-import menu
 
 from ui import reset, bold, green, yellow, magenta, red
 
@@ -42,19 +41,19 @@ def fight(player, backpack, difficulty):
             damage = calculate_damage(player, enemy)
             enemy.get_damaged(damage)
             if enemy.current_health > 0:
-                hit_message = f"{magenta}{bold}{player.name}{reset} hits {magenta}{bold}{enemy.name}{reset} for {red}{bold}{int(damage)}{reset} damage."
+                hit_message = f"{magenta + bold}{player.name}{reset} hits {magenta + bold}{enemy.name}{reset} for {red + bold}{int(damage)}{reset} damage."
                 log.append(hit_message)
                 print(hit_message)
             else:
-                log.append(f"You have slain the {red}{(enemy.name).lower()}{reset}!")
-                print(f"You have slain the {red}{(enemy.name).lower()}{reset}!")
+                log.append(f"You have slain the {red + (enemy.name).lower() + reset}!")
+                print(f"You have slain the {red + (enemy.name).lower() + reset}!")
             turn = 'enemy'
         else:
             time.sleep(0.5)
             damage = calculate_damage(enemy, player)
             player.get_damaged(damage)
             if player.current_health > 0:
-                hit_message = f"{magenta}{bold}{enemy.name}{reset} hits {magenta}{bold}{player.name}{reset} for {red}{bold}{int(damage)}{reset} damage."
+                hit_message = f"{magenta + bold}{enemy.name}{reset} hits {magenta + bold}{player.name}{reset} for {red + bold}{int(damage)}{reset} damage."
                 log.append(hit_message)
                 print(hit_message)
             else:
@@ -75,9 +74,3 @@ def fight(player, backpack, difficulty):
                 print(f"{green}+{amount}{reset} {drops.item}")
         time.sleep(2)
         player.level_up()
-        ui.refresh(player)
-        menu.menu_selection(player, backpack, input(f"""Main menu
-  {green}{bold}1){reset} Fight
-  {green}{bold}2){reset} Check inventory
-  {green}{bold}3){reset} Quit
-> """))

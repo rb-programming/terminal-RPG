@@ -25,9 +25,9 @@ def output(*args):
         print(i, sep, end='\n')
 
 def topbar(player):
-    output(f"{blue}{bold}Terminal RPG{reset}",
-      f"{green}{bold}Player{reset}: {green}{player.name}{reset} \t\tHP: {green}{int(player.current_health)}{reset}/{player.max_health}\tXP: {green}{player.xp}{reset}/{int(75 * player.level ** 1.6)}\tLevel: {green}{bold}{player.level}{reset}"
+    output(f"{blue + bold}Terminal RPG{reset}",
+      f"{green + bold}Player{reset}: {green}{player.name}{reset} \t\tHP: {green}{int(player.current_health)}{reset}/{player.max_health}\tXP: {green}{player.xp}{reset}/{int(75 * player.level ** 1.6)}\tLevel: {green + bold}{player.level}{reset}"
       )
 
 def enemy(enemy, difficulty):
-    output(f"{red}{bold}Enemy{reset}: {red}{enemy.name}{reset} ({difficulty}) \tHP: {red}{int(enemy.current_health)}{reset}/{enemy.max_health}")
+    output(f"{red + bold}Enemy{reset}: {red}{enemy.name}{reset} ({difficulty}) \tHP: {red}{int(enemy.current_health)}{reset}/{enemy.max_health}")
