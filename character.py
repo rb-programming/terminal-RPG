@@ -15,16 +15,14 @@ class Character:
         if self.xp >= int(75 * self.level ** 1.6):
             self.xp -= int(75 * self.level ** 1.6)
             self.level += 1
+            return True
+        return False
+
+
 
     def gain_xp(self, difficulty):
-        if difficulty == 'low':
-            self.xp += random.randint(30, 50)
-        if difficulty == 'mid':
-            self.xp += random.randint(60, 90)
-        if difficulty == 'high':
-            self.xp += random.randint(100, 150)
-        if difficulty == 'elite':
-            self.xp += int(75 * self.level ** 1.6 * 2)
+        if difficulty in xp_drop:
+            self.xp += random.randint(xp_drop[difficulty][0], xp_drop[difficulty][1])
 
     def get_damaged(self, amount):
         if self.current_health - amount <= 0:
@@ -37,3 +35,17 @@ class Character:
             return False
         else:
             return True
+
+xp_drop = {
+    'low': (30, 50),
+    'mid': (80, 110),
+    'high': (180, 230),
+    'elite': (500, 900),
+}
+
+stat_upgrades = {
+    '1': ('max_health', 5),
+    '2': ('attack', 1),
+    '3': ('max_attack', 2),
+    '4': ('armour', 1),
+}

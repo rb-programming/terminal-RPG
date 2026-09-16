@@ -17,3 +17,12 @@ def backpack_show():
     print(f"""  {green + bold}1){reset} Craft
   {green + bold}2){reset} Back""")
     return input("> ")
+
+def stat_menu():
+    print(f"""Choose a stat to upgrade
+  {green + bold}1){reset} Health
+  {green + bold}2){reset} Attack
+  {green + bold}3){reset} Max Attack
+  {green + bold}4){reset} Armour""")
+    choice = input("> ")
+    return choice

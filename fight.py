@@ -19,9 +19,7 @@ def calculate_damage(attacker, defender):
     damage = random.randint(attacker.attack, attacker.max_attack)
     final_damage = damage * (100 / (100 + defender.armour * 10))
     return final_damage
-    
-def drop_items():
-    pass
+
 
 def fight(player, backpack, difficulty):
     enemy = choose_enemy(difficulty)
@@ -73,4 +71,3 @@ def fight(player, backpack, difficulty):
                 backpack.pick_item(item=drops.item, amount=amount)
                 print(f"{green}+{amount}{reset} {drops.item}")
         time.sleep(2)
-        player.level_up()
