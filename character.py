@@ -1,12 +1,14 @@
 import random
 
 class Character:
-    def __init__(self, name, current_health = 100, max_health = 100, attack = 9, max_attack = 14, armour = 5, xp = 0, level = 1):
+    def __init__(self, name, current_health = 100, max_health = 100, attack = 9, max_attack = 14, crit = 0, attack_speed = 1, armour = 5, xp = 0, level = 1):
         self.name = name
         self.current_health = current_health
         self.max_health = max_health
         self.attack = attack
         self.max_attack = max_attack
+        self.crit = crit
+        self.attack_speed = attack_speed
         self.armour = armour
         self.level = level
         self.xp = xp

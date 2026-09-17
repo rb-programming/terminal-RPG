@@ -1,12 +1,19 @@
 from ui import reset, green, bold, yellow, red, magenta
 
 def menu_show():
-    print(f"""Main menu
+  print(f"""Main menu
   {green + bold}1){reset} Fight
   {green + bold}2){reset} Check inventory
   {green + bold}3){reset} Quit""")
-    choice = input("> ")
-    return choice
+  choice = input("> ")
+  return choice
+
+def gather_area_selection():
+  print(f"""Choose area to gather materials from:
+  {green + bold}1){reset} River
+  {green + bold}2){reset} Forest""")
+  choice = input("> ")
+  return choice
 
 def choose_difficulty():
     print(f"""{green + bold}1){reset} Back

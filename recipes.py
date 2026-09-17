@@ -80,61 +80,79 @@ recipes = {
         "Magic Crystal": 1,
     },
 
-    "Antidote": {
-        "Spider Eye": 1,
-        "Herb": 2,
-    },
-
-    "Torch": {
-        "Stick": 1,
-        "Cloth": 1,
-        "Oil": 1,
-    },
-
     # Utility
     "Rope": {
         "Cloth": 2,
     },
 
-    "Backpack Upgrade": {
-        "Leather": 5,
-        "Rope": 2,
+    # Headwear
+    "Cloth Hood": {
+        "Cloth": 5,
     },
 
-    "Campfire": {
-        "Stick": 4,
-        "Stone": 6,
+    "Leather Cap": {
+        "Leather": 4,
+        "Cloth": 2,
     },
 
-    "Lockpick": {
-        "Iron Ore": 1,
+    "Iron Helmet": {
+        "Iron Ore": 6,
+        "Leather": 2,
     },
 
-    # Magic
-    "Magic Staff": {
-        "Magic Crystal": 2,
-        "Wood": 2,
+    "Steel Helmet": {
+        "Steel Ingot": 5,
+        "Leather": 2,
     },
 
-    "Soul Amulet": {
-        "Soul Gem": 2,
-        "Magic Crystal": 1,
-    },
-
-    "Infernal Blade": {
-        "Infernal Core": 1,
-        "Steel Ingot": 8,
-        "Demon Horn": 2,
-    },
-
-    "Crystal Shield": {
-        "Crystal": 6,
-        "Stone Core": 2,
-    },
-
-    "Dragon Crown": {
-        "Dragon Scale": 5,
+    "Dragon Helm": {
+        "Dragon Scale": 6,
         "Dragon Tooth": 2,
-        "Magic Crystal": 3,
+        "Steel Helmet": 1,
+    },
+
+    # Rings
+    "Bone Ring": {
+        "Bone": 6,
+    },
+
+    "Spider Ring": {
+        "Spider Eye": 2,
+        "Spider Leg": 4,
+    },
+
+    "Iron Ring": {
+        "Iron Ore": 3,
+    },
+
+    "Steel Ring": {
+        "Steel Ingot": 2,
+        "Iron Ring": 1,
+    },
+
+    "Emerald Ring": {
+        "Steel Ring": 1,
+        "Emerald": 2,
+    },
+
+    "Ruby Ring": {
+        "Steel Ring": 1,
+        "Ruby": 2,
+    },
+
+    "Sapphire Ring": {
+        "Steel Ring": 1,
+        "Sapphire": 2,
+    },
+
+    "Diamond Ring": {
+        "Steel Ring": 1,
+        "Diamond": 2,
+    },
+
+    "Dragon Ring": {
+        "Dragon Tooth": 2,
+        "Dragon Scale": 3,
+        "Diamond Ring": 1,
     },
 }

@@ -57,5 +57,6 @@ class Inventory:
                 for component, amount in recipe_book[item].items():
                     self.delete_item(component, amount * craft_amount)
                 self.pick_item(item, 1 * craft_amount)
+                print(f"You have crafted {craft_amount}x {item}")
             else:
                 print("You don't have enough materials to craft that item")

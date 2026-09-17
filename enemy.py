@@ -49,12 +49,6 @@ rat = Enemy(
             min_amount=1,
             max_amount=2,
         ),
-        Drops(
-            item="Coin",
-            drop_rate=0.3,
-            min_amount=2,
-            max_amount=8,
-        ),
     ]
 )
 
@@ -107,12 +101,6 @@ skeleton = Enemy(
             min_amount=1,
             max_amount=2,
         ),
-        Drops(
-            item="Coin",
-            drop_rate=0.4,
-            min_amount=10,
-            max_amount=20,
-        ),
     ]
 )
 
@@ -135,12 +123,6 @@ wolf = Enemy(
             drop_rate=0.5,
             min_amount=1,
             max_amount=3,
-        ),
-        Drops(
-            item="Coin",
-            drop_rate=0.35,
-            min_amount=10,
-            max_amount=25,
         ),
     ]
 )
@@ -165,12 +147,6 @@ zombie = Enemy(
             min_amount=1,
             max_amount=4,
         ),
-        Drops(
-            item="Coin",
-            drop_rate=0.4,
-            min_amount=15,
-            max_amount=25,
-        ),
     ]
 )
 
@@ -193,12 +169,6 @@ goblin = Enemy(
             drop_rate=0.15,
             min_amount=1,
             max_amount=1,
-        ),
-        Drops(
-            item="Coin",
-            drop_rate=1,
-            min_amount=20,
-            max_amount=40,
         ),
     ]
 )
@@ -223,12 +193,6 @@ orc = Enemy(
             min_amount=1,
             max_amount=1,
         ),
-        Drops(
-            item="Coin",
-            drop_rate=1,
-            min_amount=30,
-            max_amount=60,
-        ),
     ]
 )
 
@@ -251,12 +215,6 @@ bandit = Enemy(
             drop_rate=0.6,
             min_amount=2,
             max_amount=8,
-        ),
-        Drops(
-            item="Coin",
-            drop_rate=1,
-            min_amount=40,
-            max_amount=70,
         ),
     ]
 )
@@ -316,12 +274,6 @@ troll = Enemy(
             min_amount=1,
             max_amount=1,
         ),
-        Drops(
-            item="Coin",
-            drop_rate=1,
-            min_amount=80,
-            max_amount=120,
-        ),
     ]
 )
 
@@ -374,12 +326,6 @@ dark_knight = Enemy(
             min_amount=1,
             max_amount=1,
         ),
-        Drops(
-            item="Coin",
-            drop_rate=1,
-            min_amount=100,
-            max_amount=160,
-        ),
     ]
 )
 
@@ -392,22 +338,10 @@ golem = Enemy(
     armour=22,
     drops=[
         Drops(
-            item="Stone Core",
-            drop_rate=0.5,
-            min_amount=1,
-            max_amount=2,
-        ),
-        Drops(
             item="Iron Ore",
             drop_rate=1,
             min_amount=5,
             max_amount=10,
-        ),
-        Drops(
-            item="Crystal",
-            drop_rate=0.3,
-            min_amount=1,
-            max_amount=3,
         ),
     ]
 )
@@ -431,12 +365,6 @@ dragon = Enemy(
             drop_rate=0.8,
             min_amount=1,
             max_amount=3,
-        ),
-        Drops(
-            item="Coin",
-            drop_rate=1,
-            min_amount=500,
-            max_amount=1000,
         ),
     ]
 )
@@ -479,22 +407,10 @@ ancient_golem = Enemy(
     armour=35,
     drops=[
         Drops(
-            item="Stone Core",
-            drop_rate=1,
-            min_amount=2,
-            max_amount=4,
-        ),
-        Drops(
             item="Steel Ingot",
             drop_rate=0.8,
             min_amount=4,
             max_amount=8,
-        ),
-        Drops(
-            item="Crystal",
-            drop_rate=0.7,
-            min_amount=2,
-            max_amount=5,
         ),
     ]
 )
@@ -518,12 +434,6 @@ demon_lord = Enemy(
             drop_rate=0.8,
             min_amount=2,
             max_amount=5,
-        ),
-        Drops(
-            item="Coin",
-            drop_rate=1,
-            min_amount=800,
-            max_amount=1500,
         ),
     ]
 )
