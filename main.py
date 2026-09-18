@@ -1,5 +1,6 @@
 import character
 import inventory
+import item_stats
 import gather
 import fight
 import ui
@@ -39,13 +40,18 @@ ui.clear_terminal()
 ui.output(f"{blue + bold}Terminal RPG{reset}")
 backpack = inventory.Inventory()
 ui.refresh(player)
-
 has_picked = False
 while True:
+  if player.current_health == 0:
+    break
   if player.level_up():
     while True:
       choice = menu.stat_menu()
-      if choice in stat_upgrades:
+      if choice == '2':
+        setattr(player, stat_upgrades[choice][0], (getattr(player, stat_upgrades[choice][0]) + stat_upgrades[choice][1]))
+        setattr(player, 'max_attack', (getattr(player, 'max_attack') + stat_upgrades[choice][1]))
+        break
+      elif choice in stat_upgrades:
         setattr(player, stat_upgrades[choice][0], (getattr(player, stat_upgrades[choice][0]) + stat_upgrades[choice][1]))
         break
       else:
@@ -82,6 +88,11 @@ while True:
         backpack.craft_item(item, amount)
         time.sleep(2)
       if choice == '2':
+        item_stats.equipment_available(backpack)
+        player.equip_item(item=menu.equip_choice(), backpack=backpack)
+        time.sleep(2)
+        pass
+      if choice == '3':
         break
   elif choice == '3':
     break

@@ -16,12 +16,16 @@ def gather(area, backpack):
             print(f"You found and gathered {amount}x {drop.item}")
 
 gather_area = {
-    '1': (Drops(item='Water', drop_rate=1, min_amount=1, max_amount=3),
+    '1':   (Drops(item='Water', drop_rate=1, min_amount=1, max_amount=3),
             Drops(item='Sharp Stone', drop_rate=0.7, min_amount=1, max_amount=3),
-            Drops(item='Feather', drop_rate=0.7, min_amount=1, max_amount=3)
+            Drops(item='Feather', drop_rate=0.7, min_amount=1, max_amount=3),
+            Drops(item='Stick', drop_rate=1, min_amount=2, max_amount=4),
+            Drops(item='Cloth', drop_rate=0.6, min_amount=1, max_amount=2)
             ),
-    '2': (Drops(item='Herb', drop_rate=1, min_amount=2, max_amount=4),
+    '2':   (Drops(item='Herb', drop_rate=1, min_amount=2, max_amount=4),
             Drops(item='Feather', drop_rate=0.7, min_amount=1, max_amount=4),
-            Drops(item='Sharp Stone', drop_rate=0.7, min_amount=1, max_amount=3)
+            Drops(item='Sharp Stone', drop_rate=0.7, min_amount=1, max_amount=3),
+            Drops(item='Wood', drop_rate=0.6, min_amount=1, max_amount=3),
+            Drops(item='Stick', drop_rate=1, min_amount=2, max_amount=4),
             )
 }

@@ -8,6 +8,11 @@ def menu_show():
   choice = input("> ")
   return choice
 
+def equip_choice():
+  print(f"Enter the exact name of the item you wish to {yellow}equip{reset}")
+  choice = input("> ")
+  return choice
+
 def gather_area_selection():
   print(f"""Choose area to gather materials from:
   {green + bold}1){reset} River
@@ -22,14 +27,14 @@ def choose_difficulty():
 
 def backpack_show():
     print(f"""  {green + bold}1){reset} Craft
-  {green + bold}2){reset} Back""")
+  {green + bold}2){reset} Equip
+  {green + bold}3){reset} Back""")
     return input("> ")
 
 def stat_menu():
     print(f"""Choose a stat to upgrade
   {green + bold}1){reset} Health
   {green + bold}2){reset} Attack
-  {green + bold}3){reset} Max Attack
-  {green + bold}4){reset} Armour""")
+  {green + bold}3){reset} Armour""")
     choice = input("> ")
     return choice
